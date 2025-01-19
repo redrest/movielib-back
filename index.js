@@ -44,7 +44,7 @@ app.get('/admin', authMiddleware, roleMiddleware(['ADMIN']), (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.send('Добро пожаловать на сервер!!');
+    res.send('Сервер работает!');
 });
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
