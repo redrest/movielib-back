@@ -43,6 +43,10 @@ app.get('/admin', authMiddleware, roleMiddleware(['ADMIN']), (req, res) => {
     res.status(200).json({message: "Доступ для админов"});
 });
 
+app.get('/', (req, res) => {
+    res.send('Добро пожаловать на сервер!!');
+});
+
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const storage = multer.diskStorage({
