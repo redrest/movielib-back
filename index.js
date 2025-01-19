@@ -81,7 +81,7 @@ const root = {
         const movies = await Movie.find();
         return movies.map(movie => ({
             ...movie._doc,
-            poster: `http://localhost:5000/uploads${movie.poster}`,
+            poster: `http://90.156.171.177:5000/uploads${movie.poster}`,
         }));
     },
 
@@ -91,7 +91,7 @@ const root = {
         const directors = await Director.find();
         return directors.map(director => ({
             ...director._doc,
-            poster: `http://localhost:5000/uploads${director.poster}`,
+            poster: `http://90.156.171.177:5000/uploads${director.poster}`,
         }));
     },
 
@@ -99,7 +99,7 @@ const root = {
         const movie = await Movie.findOne({ titleEn: { $regex: new RegExp('^' + titleEn + '$', 'i') } });
         return {
             ...movie._doc,
-            poster: `http://localhost:5000/uploads${movie.poster}`
+            poster: `http://90.156.171.177:5000/uploads${movie.poster}`
         };
     },
 
@@ -107,7 +107,7 @@ const root = {
         const director = await Director.findOne({ fullNameEn: { $regex: new RegExp('^' + fullNameEn + '$', 'i') }});
         return {
             ...director._doc,
-            poster: `http://localhost:5000/uploads${director.poster}`
+            poster: `http://90.156.171.177:5000/uploads${director.poster}`
         }
     },
 
@@ -115,7 +115,7 @@ const root = {
         const directorMovies = await Movie.find({ 'director.fullNameEn': { $regex: new RegExp('^' + fullNameEn + '$', 'i')}});
         return directorMovies.map(movies => ({
             ...movies._doc,
-            poster: `http://localhost:5000/uploads${movies.poster}`,
+            poster: `http://90.156.171.177:5000/uploads${movies.poster}`,
         }));
     },
 
@@ -123,7 +123,7 @@ const root = {
         const genreMovies = await Movie.find({ 'genres.genreEn': { $regex: new RegExp('^' + genreEn + '$', 'i')}});
         return genreMovies.map(movies => ({
             ...movies._doc,
-            poster: `http://localhost:5000/uploads${movies.poster}`,
+            poster: `http://90.156.171.177:5000/uploads${movies.poster}`,
         }));
     },
 
