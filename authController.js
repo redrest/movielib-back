@@ -45,7 +45,7 @@ class authController {
 
             const token = generateAccessToken(userId, userRoles);
 
-            res.redirect(`http://90.156.171.177:80/auth/?token=${token}&name=${username}`);
+            res.redirect(`http://90.156.171.177:3000/auth/?token=${token}&name=${username}`);
         } catch (e) {
             console.error(e);
             res.status(500).json({ message: 'GitHub Login Error' });
